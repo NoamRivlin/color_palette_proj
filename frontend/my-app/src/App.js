@@ -1,12 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
+// import logo from './logo.svg';
+// import { Counter } from './features/counter/Counter';
 import './App.css';
+// const playwright = require('playwright');
+// import playwright from 'playwright';
 
 function App() {
+  /// importing playwright crashes react,
+  //  need to make an api request from the front
+  // to the  back end, using express. somehow...
+  const getScreenshot = async () => {
+    // const browser = await playwright.chromium.launch();
+    // const context = await browser.newContext({
+    //   incognito: true,
+    //   recordPerformance: false,
+    // });
+    // const page = await context.newPage();
+    // await page.goto('https://tph-berlin.net/');
+    // await page.screenshot({ path: 'example.png' });
+    // await browser.close();
+  };
+
+  useEffect(() => {
+    getScreenshot();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className='App'>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -50,7 +70,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }

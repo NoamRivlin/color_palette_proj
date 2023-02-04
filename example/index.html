@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="./screenshots/123.png" alt="asd">
+
+</body>
+<script>
+  const path = require('path');
+  const main = () => {
+    const imgFile = document.getElementById("imgfile");
+    const image = new Image();
+    const file = imgFile.files[0];
+    const fileReader = new FileReader();
+
+    fileReader.onload = () => {
+      image.onload = () => {
+        const canvas = document.getElementById("canvas");
+        canvas.width = image.width;
+        canvas.height = image.height;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(image, 0, 0);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      };
+    };
+  }
+</script>
+
+</html>
